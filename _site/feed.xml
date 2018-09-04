@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-04T03:58:15-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Resumo do protótipo</title><link href="http://localhost:4000/2018/09/04/prototipo.html" rel="alternate" type="text/html" title="Resumo do protótipo" /><published>2018-09-04T01:20:15-03:00</published><updated>2018-09-04T01:20:15-03:00</updated><id>http://localhost:4000/2018/09/04/prototipo</id><content type="html" xml:base="http://localhost:4000/2018/09/04/prototipo.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-04T04:59:09-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Material</title><link href="http://localhost:4000/2018/09/04/material.html" rel="alternate" type="text/html" title="Material" /><published>2018-09-04T04:08:28-03:00</published><updated>2018-09-04T04:08:28-03:00</updated><id>http://localhost:4000/2018/09/04/material</id><content type="html" xml:base="http://localhost:4000/2018/09/04/material.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
+
+&lt;p&gt;Neste post tentarei explicar por cima o que pretendo utilizar para o projeto.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h3 id=&quot;o-que-será-utilizado&quot;&gt;O que será utilizado&lt;/h3&gt;
+
+&lt;p&gt;O que pretendo utilizar para conceber o projeto:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry pi 3 Model B&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/downloads/raspbian/&quot;&gt;Raspbian&lt;/a&gt; (versão: June 2018)&lt;/li&gt;
+  &lt;li&gt;Breadboard de 400 pontos&lt;/li&gt;
+  &lt;li&gt;Jumpers&lt;/li&gt;
+  &lt;li&gt;6 servo motores TowerPro MG996R&lt;/li&gt;
+  &lt;li&gt;Braço robótico de alumino&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://opencv.org/&quot;&gt;OpenCV&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;sensor de obstáculo infravermelho&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;raspberry-pi-3-b&quot;&gt;Raspberry Pi 3 B&lt;/h4&gt;
+&lt;p&gt;Se comportará como a “Central de comando” do dispositivo. É aqui onde toda o processamento tanto de imagem como de manipulação dos servor irá acontecer.&lt;/p&gt;
+
+&lt;h4 id=&quot;raspbian&quot;&gt;Raspbian&lt;/h4&gt;
+&lt;p&gt;O raspbian é um sistema operacional, baseado no &lt;a href=&quot;https://www.debian.org/&quot;&gt;Debian&lt;/a&gt;, otimizado para o Raspberry Pi e seus diferentes modelos. Ele será o sistema operacional utilizado no raspberry.&lt;/p&gt;
+
+&lt;h4 id=&quot;breadboard--jumpers&quot;&gt;Breadboard + jumpers&lt;/h4&gt;
+&lt;p&gt;O breadboard será utilizado como o “common ground” entre o GPIO do Raspberry, os servo motores e a fonte de alimentação.&lt;/p&gt;
+
+&lt;h4 id=&quot;servo-motor-towerpro-mg996r&quot;&gt;Servo motor TowerPro MG996R&lt;/h4&gt;
+&lt;p&gt;Este modelo de servo consegue aplicar um torque maior, e precisamos dele justamente porque a estrutura do braço é de aluminio.&lt;/p&gt;
+
+&lt;h4 id=&quot;opencv&quot;&gt;OpenCV&lt;/h4&gt;
+&lt;p&gt;O OpenCV é uma bilbioteca em C/C++ criada especificamente para a facilitação de processamento digital de imagens. E ela ajudará muito no projeto.&lt;/p&gt;
+
+&lt;h4 id=&quot;sensor-de-obstáculo&quot;&gt;Sensor de obstáculo&lt;/h4&gt;
+&lt;p&gt;O sensor será utilizado para que o lapis/caneta/marcador, utilizado para plotar os pontos, mantenha uma certa distancia mínima do papel para que o braço não force muito na superficie.&lt;/p&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry><entry><title type="html">Resumo do protótipo</title><link href="http://localhost:4000/2018/09/04/prototipo.html" rel="alternate" type="text/html" title="Resumo do protótipo" /><published>2018-09-04T01:20:15-03:00</published><updated>2018-09-04T01:20:15-03:00</updated><id>http://localhost:4000/2018/09/04/prototipo</id><content type="html" xml:base="http://localhost:4000/2018/09/04/prototipo.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
 
 &lt;p&gt;Neste post estarei relatando o que foi feito no protótipo do projeto, carinhosamente apilidado de Astolfinho.&lt;/p&gt;
 
@@ -81,18 +117,6 @@
 &lt;p&gt;Imagem 4 - Resultado&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/introducao-braco/prototipo-resultado.png&quot; alt=&quot;resultado&quot; width=&quot;200&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;o-que-será-utilizado&quot;&gt;O que será utilizado&lt;/h3&gt;
-
-&lt;p&gt;O que pretendo utilizar para conceber o projeto:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry pi 3 Model B&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/downloads/raspbian/&quot;&gt;Raspbian&lt;/a&gt; (versão: June 2018)&lt;/li&gt;
-  &lt;li&gt;Breadboard de 400 pontos&lt;/li&gt;
-  &lt;li&gt;Jumpers&lt;/li&gt;
-  &lt;li&gt;6 servo motores TowerPro MG996R&lt;/li&gt;
-  &lt;li&gt;Braço robótico de alumino&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h3 id=&quot;referências&quot;&gt;Referências:&lt;/h3&gt;
 &lt;ul&gt;

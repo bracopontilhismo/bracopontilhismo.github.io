@@ -40,15 +40,5 @@ Imagem 4 - Resultado
 
 <img src="/images/introducao-braco/prototipo-resultado.png" alt="resultado" width="200"/>
 
-### O que será utilizado
-
-O que pretendo utilizar para conceber o projeto:
-- [Raspberry pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-- [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) (versão: June 2018)
-- Breadboard de 400 pontos
-- Jumpers
-- 6 servo motores TowerPro MG996R
-- Braço robótico de alumino
-
 ### Referências:
 - WIKIPEDIA. **Pontilhismo**. Disponível em: < <https://pt.wikipedia.org/wiki/Pontilhismo> > Acesso em: 02 de setembro de 2018
