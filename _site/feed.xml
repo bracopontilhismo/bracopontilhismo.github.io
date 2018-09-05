@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-05T12:08:57-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-05T12:13:28-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;
 Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem utilizando a técnica de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Pontilhismo&quot; target=&quot;_blank&quot;&gt;pontilhismo&lt;/a&gt;.
@@ -35,9 +35,15 @@ A parte de processamento da imagem foi toda feita em MATLAB. Pega-se a imagem, r
 &lt;i&gt;Basic Sequential Algorithmic Scheme&lt;/i&gt; é um algoritimo utilizado principalmente em agrupamento de dados. O algorítimo pode ser resumidamente descrito assim:
 &lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;Escolhe-se um ponto aleatório dos dados para ser o lider do agrupamento;&lt;/li&gt;
-  &lt;li&gt;Agrupa-se, numa mesma classe, todos os dados que estão próximos dele a uma distância ‘ρ’ escolhida préviamente;&lt;/li&gt;
-  &lt;li&gt;Repete-se o passo dois para um novo lider, aleatóriamente escolhido, que não pertence a nenhuma classe até não haver mais nenhum dado sem classe.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p style=&quot;text-align: justify;&quot;&gt;Escolhe-se um ponto aleatório dos dados para ser o lider do agrupamento;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p style=&quot;text-align: justify;&quot;&gt;Agrupa-se, numa mesma classe, todos os dados que estão próximos dele a uma distância 'ρ' escolhida préviamente;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p style=&quot;text-align: justify;&quot;&gt;Repete-se o passo dois para um novo lider, aleatóriamente escolhido, que não pertence a nenhuma classe até não haver mais nenhum dado sem classe.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Exemplo:&lt;/p&gt;

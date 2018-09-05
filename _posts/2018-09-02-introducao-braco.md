@@ -40,9 +40,9 @@ A parte de processamento da imagem foi toda feita em MATLAB. Pega-se a imagem, r
 <p style='text-align: justify;'>
 <i>Basic Sequential Algorithmic Scheme</i> é um algoritimo utilizado principalmente em agrupamento de dados. O algorítimo pode ser resumidamente descrito assim:
 </p>
-1. Escolhe-se um ponto aleatório dos dados para ser o lider do agrupamento;
-2. Agrupa-se, numa mesma classe, todos os dados que estão próximos dele a uma distância 'ρ' escolhida préviamente;
-3. Repete-se o passo dois para um novo lider, aleatóriamente escolhido, que não pertence a nenhuma classe até não haver mais nenhum dado sem classe.
+1. <p style='text-align: justify;'>Escolhe-se um ponto aleatório dos dados para ser o lider do agrupamento;</p>
+2. <p style='text-align: justify;'>Agrupa-se, numa mesma classe, todos os dados que estão próximos dele a uma distância 'ρ' escolhida préviamente;</p>
+3. <p style='text-align: justify;'>Repete-se o passo dois para um novo lider, aleatóriamente escolhido, que não pertence a nenhuma classe até não haver mais nenhum dado sem classe.</p>
 
 Exemplo:
 
