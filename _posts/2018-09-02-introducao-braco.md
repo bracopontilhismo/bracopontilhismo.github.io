@@ -10,7 +10,7 @@ Este blog será dedicado para documentar um projeto que estou desenvolvendo dura
 </p>
 
 Imagem 1 - Exemplo da tecninca de pontilhismo
-<img src="/images/introducao-braco/Exemplo-pontilhismo.svg" alt="Exemplo-pontilhismo" width="450"/>
+<img src="/images/introducao-braco/Exemplo-pontilhismo.svg" alt="Exemplo-pontilhismo" width="600"/>
 
 Fonte: LUCCAS BONATO, Pássaro
 
