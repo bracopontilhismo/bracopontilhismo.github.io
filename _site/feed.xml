@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-05T11:54:54-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-05T12:08:57-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;
-Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem, através da técnica de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Pontilhismo&quot; target=&quot;_blank&quot;&gt;pontilhismo&lt;/a&gt;.
+Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem utilizando a técnica de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Pontilhismo&quot; target=&quot;_blank&quot;&gt;pontilhismo&lt;/a&gt;.
 &lt;/p&gt;
 
 &lt;p&gt;Imagem 1 - Exemplo da tecninca de pontilhismo
@@ -22,7 +22,7 @@ Um protótipo foi feito durante o curso de instrumentação eletrônica no pŕim
 &lt;p&gt;&lt;img src=&quot;/images/introducao-braco/prototipo.svg&quot; alt=&quot;protótipo&quot; width=&quot;400&quot; /&gt;&lt;/p&gt;
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;
-O protótipo foi construido apenas com &lt;a href=&quot;https://store.arduino.cc/usa/arduino-uno-rev3&quot; target=&quot;_blank&quot;&gt;Arduino Uno Rev3&lt;/a&gt;, 4 servo motores TowerPro SG90 e sua estrutura em MDF. A estrutura em MDF é leve e facilita o controle dela pelos servo motores, pois eles tem baixo torque.
+O protótipo foi construido apenas com &lt;a href=&quot;https://store.arduino.cc/usa/arduino-uno-rev3&quot; target=&quot;_blank&quot;&gt;Arduino Uno Rev3&lt;/a&gt;, 4 servo motores TowerPro SG90 e sua estrutura em MDF. A estrutura em MDF é leve e facilita o controle dela pelos servo motores, pois eles têm baixo torque.
 &lt;/p&gt;
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;
@@ -63,7 +63,7 @@ O que foi utilizado no processamento foi a ideia do BSAS em separar dados de aco
 &lt;h4 id=&quot;hardware&quot;&gt;Hardware&lt;/h4&gt;
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;
-Há um problema na parte do hardware pois os servo motores só controlam angulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação &lt;a href=&quot;https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg&quot; target=&quot;_blank&quot;&gt;Denavit Hartenberg&lt;/a&gt; e simplificações algébricas. Com isso tem-se controle sobre o plano XYZ ao invés de angulos.
+Há um problema na parte do hardware pois os servo motores só controlam ângulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação &lt;a href=&quot;https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg&quot; target=&quot;_blank&quot;&gt;Denavit Hartenberg&lt;/a&gt; e simplificações algébricas. Com isso se tem controle sobre o plano XYZ invés de ângulos.
 &lt;/p&gt;
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;
@@ -74,7 +74,7 @@ E, por fim, como o pixel é adimensional tem que predefinir o que seria a distâ
 &lt;img src=&quot;/images/introducao-braco/resultado.svg&quot; alt=&quot;resultado&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
 
 &lt;p style=&quot;text-align: justify;&quot;&gt;
-O resultado foi aceitável para o que foi idealizado. Da para reconhecer a imagem que foi processada. Porém, teve alguns obstáculos e não foram todos resolvidos. Como por exemplo, deslisamento da caneta quando vai criar o ponto. Pretendo resolver isso com sensor de distância nesta nova versão. Mas isso será assunto dos próximos posts.
+O resultado foi aceitável para o que foi idealizado. Dá para reconhecer a imagem que foi processada. Porém, teve alguns obstáculos e não foram todos resolvidos. Como por exemplo, deslisamento da caneta quando vai criar o ponto. Pretendo resolver isso com sensor de distância nesta nova versão. Mas isso será assunto dos próximos posts.
 &lt;/p&gt;
 
 &lt;p&gt;Inté!&lt;/p&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry></feed>

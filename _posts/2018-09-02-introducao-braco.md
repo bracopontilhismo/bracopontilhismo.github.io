@@ -6,7 +6,7 @@ date:   2018-09-02 17:54:42 -0300
 #### Olá leitor!
 
 <p style='text-align: justify;'>
-Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem, através da técnica de <a href="https://pt.wikipedia.org/wiki/Pontilhismo" target="_blank">pontilhismo</a>.
+Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem utilizando a técnica de <a href="https://pt.wikipedia.org/wiki/Pontilhismo" target="_blank">pontilhismo</a>.
 </p>
 
 Imagem 1 - Exemplo da tecninca de pontilhismo
@@ -28,7 +28,7 @@ Imagem 2 - protótipo
 <img src="/images/introducao-braco/prototipo.svg" alt="protótipo" width="400"/>
 
 <p style='text-align: justify;'>
-O protótipo foi construido apenas com <a href="https://store.arduino.cc/usa/arduino-uno-rev3" target="_blank">Arduino Uno Rev3</a>, 4 servo motores TowerPro SG90 e sua estrutura em MDF. A estrutura em MDF é leve e facilita o controle dela pelos servo motores, pois eles tem baixo torque.
+O protótipo foi construido apenas com <a href="https://store.arduino.cc/usa/arduino-uno-rev3" target="_blank">Arduino Uno Rev3</a>, 4 servo motores TowerPro SG90 e sua estrutura em MDF. A estrutura em MDF é leve e facilita o controle dela pelos servo motores, pois eles têm baixo torque.
 </p>
 
 <p style='text-align: justify;'>
@@ -67,7 +67,7 @@ Imagem 6 - Imagem processada<br>
 #### Hardware
 
 <p style='text-align: justify;'>
-Há um problema na parte do hardware pois os servo motores só controlam angulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg" target="_blank">Denavit Hartenberg</a> e simplificações algébricas. Com isso tem-se controle sobre o plano XYZ ao invés de angulos.
+Há um problema na parte do hardware pois os servo motores só controlam ângulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg" target="_blank">Denavit Hartenberg</a> e simplificações algébricas. Com isso se tem controle sobre o plano XYZ invés de ângulos.
 </p>
 
 <p style='text-align: justify;'>
@@ -78,7 +78,7 @@ Imagem 6 - Resultado<br>
 <img src="/images/introducao-braco/resultado.svg" alt="resultado" width="500"/>
 
 <p style='text-align: justify;'>
-O resultado foi aceitável para o que foi idealizado. Da para reconhecer a imagem que foi processada. Porém, teve alguns obstáculos e não foram todos resolvidos. Como por exemplo, deslisamento da caneta quando vai criar o ponto. Pretendo resolver isso com sensor de distância nesta nova versão. Mas isso será assunto dos próximos posts.
+O resultado foi aceitável para o que foi idealizado. Dá para reconhecer a imagem que foi processada. Porém, teve alguns obstáculos e não foram todos resolvidos. Como por exemplo, deslisamento da caneta quando vai criar o ponto. Pretendo resolver isso com sensor de distância nesta nova versão. Mas isso será assunto dos próximos posts.
 </p>
 
 Inté!
