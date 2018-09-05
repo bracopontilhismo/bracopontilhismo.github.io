@@ -1,124 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-04T04:59:09-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Material</title><link href="http://localhost:4000/2018/09/04/material.html" rel="alternate" type="text/html" title="Material" /><published>2018-09-04T04:08:28-03:00</published><updated>2018-09-04T04:08:28-03:00</updated><id>http://localhost:4000/2018/09/04/material</id><content type="html" xml:base="http://localhost:4000/2018/09/04/material.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-05T11:33:07-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
 
-&lt;p&gt;Neste post tentarei explicar por cima o que pretendo utilizar para o projeto.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h3 id=&quot;o-que-será-utilizado&quot;&gt;O que será utilizado&lt;/h3&gt;
-
-&lt;p&gt;O que pretendo utilizar para conceber o projeto:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-3-model-b/&quot;&gt;Raspberry pi 3 Model B&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/downloads/raspbian/&quot;&gt;Raspbian&lt;/a&gt; (versão: June 2018)&lt;/li&gt;
-  &lt;li&gt;Breadboard de 400 pontos&lt;/li&gt;
-  &lt;li&gt;Jumpers&lt;/li&gt;
-  &lt;li&gt;6 servo motores TowerPro MG996R&lt;/li&gt;
-  &lt;li&gt;Braço robótico de alumino&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://opencv.org/&quot;&gt;OpenCV&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;sensor de obstáculo infravermelho&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;raspberry-pi-3-b&quot;&gt;Raspberry Pi 3 B&lt;/h4&gt;
-&lt;p&gt;Se comportará como a “Central de comando” do dispositivo. É aqui onde toda o processamento tanto de imagem como de manipulação dos servor irá acontecer.&lt;/p&gt;
-
-&lt;h4 id=&quot;raspbian&quot;&gt;Raspbian&lt;/h4&gt;
-&lt;p&gt;O raspbian é um sistema operacional, baseado no &lt;a href=&quot;https://www.debian.org/&quot;&gt;Debian&lt;/a&gt;, otimizado para o Raspberry Pi e seus diferentes modelos. Ele será o sistema operacional utilizado no raspberry.&lt;/p&gt;
-
-&lt;h4 id=&quot;breadboard--jumpers&quot;&gt;Breadboard + jumpers&lt;/h4&gt;
-&lt;p&gt;O breadboard será utilizado como o “common ground” entre o GPIO do Raspberry, os servo motores e a fonte de alimentação.&lt;/p&gt;
-
-&lt;h4 id=&quot;servo-motor-towerpro-mg996r&quot;&gt;Servo motor TowerPro MG996R&lt;/h4&gt;
-&lt;p&gt;Este modelo de servo consegue aplicar um torque maior, e precisamos dele justamente porque a estrutura do braço é de aluminio.&lt;/p&gt;
-
-&lt;h4 id=&quot;opencv&quot;&gt;OpenCV&lt;/h4&gt;
-&lt;p&gt;O OpenCV é uma bilbioteca em C/C++ criada especificamente para a facilitação de processamento digital de imagens. E ela ajudará muito no projeto.&lt;/p&gt;
-
-&lt;h4 id=&quot;sensor-de-obstáculo&quot;&gt;Sensor de obstáculo&lt;/h4&gt;
-&lt;p&gt;O sensor será utilizado para que o lapis/caneta/marcador, utilizado para plotar os pontos, mantenha uma certa distancia mínima do papel para que o braço não force muito na superficie.&lt;/p&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry><entry><title type="html">Resumo do protótipo</title><link href="http://localhost:4000/2018/09/04/prototipo.html" rel="alternate" type="text/html" title="Resumo do protótipo" /><published>2018-09-04T01:20:15-03:00</published><updated>2018-09-04T01:20:15-03:00</updated><id>http://localhost:4000/2018/09/04/prototipo</id><content type="html" xml:base="http://localhost:4000/2018/09/04/prototipo.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
-
-&lt;p&gt;Neste post estarei relatando o que foi feito no protótipo do projeto, carinhosamente apilidado de Astolfinho.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
-
-&lt;p&gt;Este protótipo foi desenvolvido por mim, com uma ajudinha de &lt;a href=&quot;https://wenyaraujo.github.io/&quot;&gt;Weny Maysa&lt;/a&gt;. O objetivo do projeto é utilizar um braço robótico para desempenhar a tarefa de desenhar uma imagem dada pelo usuário com a técnica de pontilhismo, como já mencionado no &lt;a href=&quot;/2018/09/02/introducao-braco.html&quot;&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;metodologia&quot;&gt;Metodologia&lt;/h2&gt;
-
-&lt;p&gt;No protótipo foi utilizado:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://store.arduino.cc/usa/arduino-uno-rev3&quot;&gt;Arduino Uno Rev3&lt;/a&gt; (placa e &lt;a href=&quot;https://www.arduino.cc/en/Main/Software&quot;&gt;software&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.mathworks.com/products/matlab.html&quot;&gt;MATLAB&lt;/a&gt; (software)&lt;/li&gt;
-  &lt;li&gt;4 Servo motores TowerPro SG90&lt;/li&gt;
-  &lt;li&gt;Braço Robótico MDF&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A estrutura do braço robótico é feita em MDF que é relativamente leve e facilita para que os servo motores possa aplicar o menor torque possivel para mover cada junta. Pois, os servor motores utilizados geram torque relativamente baixo.&lt;/p&gt;
-
-&lt;p&gt;Após de utilizar a Notação Denavit Hartenberg para a atribuição de referencias de elo (figura 1). Foi retirado a cinemática direta e com isso após de varios cálculos e simplificações algébricas conseguimos a cinemática inversa para calcular os angulos dos servos dado a posição XYZ no espaço (figura 2).&lt;/p&gt;
-
-&lt;p&gt;Figura 1 - Referenciais de elo&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/prototipo/referencial.png&quot; alt=&quot;referencial&quot; width=&quot;600&quot; /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Figura 2 - Matriz de cinemática inversa&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/prototipo/cinematica-inversa.png&quot; alt=&quot;cinemática inversa&quot; width=&quot;600&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;O MATLAB foi utilizado para o processamento da imagem. A ideia que utilizamos foi detectar as bordas da imagem utilizando Canny. Após a detecção das bordas, para criar o efeito de pontilhismo foi utilizado uma tecnica de agrupamento de dados chamado de BSAS, “Basic Sequential Algorithmic Scheme”, com isso reduzimos varios pixels num certo raio de um pixel central como um só. Resultando o seguinte efeito:&lt;/p&gt;
-
-&lt;p&gt;Figura 3 - Bordas detectadas
-&lt;img src=&quot;/images/prototipo/canny.png&quot; alt=&quot;canny&quot; width=&quot;600&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Figura 4 - aplicação do BSAS
-&lt;img src=&quot;/images/prototipo/bsas.png&quot; alt=&quot;bsas&quot; width=&quot;600&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Utilizamos os pontos finais do BSAS e a matriz de cinemática inversa para plotar o os pontos no papel. Resultando no que já foi mostrado no &lt;a href=&quot;/2018/09/02/introducao-braco.html&quot;&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Figura 5 - Imagem original&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/prototipo/prototipo-original.jpg&quot; alt=&quot;original&quot; width=&quot;200&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Figura 6 - Resultado&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/prototipo/prototipo-resultado.png&quot; alt=&quot;resultado&quot; width=&quot;200&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
-
-&lt;p&gt;Este blog será dedicado especificamente para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada, através de uma técnica de desenho chamada de pontilhismo.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;motivações&quot;&gt;Motivações&lt;/h2&gt;
-&lt;p&gt;Eu sempre tive interesse em arte e formas diferentes de desenhar. De vez em quando que estava com tédio ou em aula ou em casa abria meu caderno e começava a desenhar coisas aleatórias. Então decidi botar o projeto pra frente porque é uma otima mistura de dois interesses meus que é robótica e programação com desenho.&lt;/p&gt;
-
-&lt;p&gt;É cada vez mais recorrente o uso de robôs que exercem atividades que geralmente são feitas por humanos. Este projeto tem fim acadêmico, porém, diversas aplicações podem ser geradas a partir desse trabalho, visto a gama de assuntos envolvidos na sua concepção.&lt;/p&gt;
-
-&lt;p&gt;Eu criei um portótipo do projeto no primeiro semestre de 2018. O protótipo foi feito com arduino e cheio de gambiarra de codigo, uma certa mistura de Matlab, C++, Ctrl+C e Ctrl+V. Então quis desenvolver uma versão melhorada e sem gambiarra.&lt;/p&gt;
-
-&lt;h2 id=&quot;o-que-é-pontilhismo&quot;&gt;O que é pontilhismo?&lt;/h2&gt;
-&lt;p&gt;Pontilhismo pode ser tanto uma técnica de pintura ou de desenho. Foi criada no século XIX por Georges Seurat na França. Ela consiste em utilização de manhcas ou pontos um ao lado do outro, e as vezes até sobrepostos, para construir a imagem final.&lt;/p&gt;
+&lt;p&gt;Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem, através da técnica de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Pontilhismo&quot;&gt;pontilhismo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Imagem 1 - Exemplo da tecninca de pontilhismo
-&lt;img src=&quot;/images/introducao-braco/Exemplo-pontilhismo.jpeg&quot; alt=&quot;Exemplo-pontilhismo&quot; width=&quot;450&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/images/introducao-braco/Exemplo-pontilhismo.svg&quot; alt=&quot;Exemplo-pontilhismo&quot; width=&quot;450&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Fonte: LUCCAS BONATO, Pássaro&lt;/p&gt;
 
-&lt;h2 id=&quot;resultados-do-protótipo&quot;&gt;Resultados do protótipo&lt;/h2&gt;
+&lt;p&gt;É cada vez mais recorrente o uso de robôs que exercem atividades que geralmente são feitas por humanos. Este projeto tem fim acadêmico, porém, diversas aplicações podem ser geradas a partir desse trabalho, visto a gama de assuntos envolvidos na sua concepção.&lt;/p&gt;
+
+&lt;p&gt;Um protótipo foi feito durante o curso de instrumentação eletrônica no pŕimeiro semestre de 2018. Como o blog será sobre a versão melhorada, o protótipo não será abordado tão detalhadamente.&lt;/p&gt;
+&lt;h2 id=&quot;protótipo&quot;&gt;Protótipo&lt;/h2&gt;
 
 &lt;p&gt;Imagem 2 - protótipo&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/introducao-braco/prototipo.jpg&quot; alt=&quot;protótipo&quot; width=&quot;200&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/introducao-braco/prototipo.svg&quot; alt=&quot;protótipo&quot; width=&quot;400&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Imagem 3 - Imagem original&lt;/p&gt;
+&lt;p&gt;O protótipo foi construido apenas com &lt;a href=&quot;https://store.arduino.cc/usa/arduino-uno-rev3&quot;&gt;Arduino Uno Rev3&lt;/a&gt;, 4 servo motores TowerPro SG90 e sua estrutura em MDF. A estrutura em MDF é leve e facilita o controle dela pelos servo motores, pois eles tem baixo torque.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/introducao-braco/prototipo-original.jpg&quot; alt=&quot;original&quot; width=&quot;200&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;A parte de processamento da imagem foi toda feita em MATLAB. Pega-se a imagem, retira-se os pontos de borda da imagem utilizando &lt;a href=&quot;https://pt.wikipedia.org/wiki/Detector_de_bordas_de_Canny&quot;&gt;Canny&lt;/a&gt;, com o limiar(threshold) escolhido pelo usuário. A partir do resultado anterior é utilizado &lt;a href=&quot;http://cs.joensuu.fi/pages/oili/PR/?a=Some__Material&amp;amp;b=Sequential__Clustering&quot;&gt;BSAS&lt;/a&gt; para dar o efeito de espaçamento dos pontos.&lt;/p&gt;
 
-&lt;p&gt;Imagem 4 - Resultado&lt;/p&gt;
+&lt;h4 id=&quot;bsas&quot;&gt;BSAS&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/introducao-braco/prototipo-resultado.png&quot; alt=&quot;resultado&quot; width=&quot;200&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Basic Sequential Algorithmic Scheme&lt;/em&gt; é um algoritimo utilizado principalmente em agrupamento de dados. O algorítimo pode ser resumidamente descrito assim:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Escolhe-se um ponto aleatório dos dados para ser o lider do agrupamento;&lt;/li&gt;
+  &lt;li&gt;Agrupa-se, numa mesma classe, todos os dados que estão próximos dele a uma distância ‘ρ’ escolhida préviamente.&lt;/li&gt;
+  &lt;li&gt;Repete-se o passo dois para um novo lider, aleatóriamente escolhido, que não pertence a nenhuma classe até não haver mais nenhum dado sem classe.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;h3 id=&quot;referências&quot;&gt;Referências:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;WIKIPEDIA. &lt;strong&gt;Pontilhismo&lt;/strong&gt;. Disponível em: &amp;lt; &lt;a href=&quot;https://pt.wikipedia.org/wiki/Pontilhismo&quot;&gt;https://pt.wikipedia.org/wiki/Pontilhismo&lt;/a&gt; &amp;gt; Acesso em: 02 de setembro de 2018&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry></feed>
+&lt;p&gt;Exemplo:&lt;/p&gt;
+
+&lt;p&gt;Imagem 3 - Base de dados aleatóriamente gerada
+&lt;img src=&quot;/images/introducao-braco/dados.svg&quot; alt=&quot;dados&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Imagem 4 - Dados agrupados com ρ=0.7
+&lt;img src=&quot;/images/introducao-braco/BSASagrupados.svg&quot; alt=&quot;agrupados&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;processamento-da-imagem&quot;&gt;Processamento da imagem&lt;/h4&gt;
+
+&lt;p&gt;O que foi utilizado no processamento foi a ideia do BSAS em separar dados de acordo com uma distância. Modificou-se o algoritimo para só memorizar a posição dos lideres, invés de agrupar. Com isso dando uma certa característica de pontilhismo.&lt;/p&gt;
+
+&lt;p&gt;Imagem 5 - Imagem original&lt;br /&gt;
+&lt;img src=&quot;/images/introducao-braco/original.svg&quot; alt=&quot;original&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Imagem 6 - Imagem processada&lt;br /&gt;
+&lt;img src=&quot;/images/introducao-braco/bsas.svg&quot; alt=&quot;bsas&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;hardware&quot;&gt;Hardware&lt;/h4&gt;
+
+&lt;p&gt;Há um problema na parte do hardware pois os servo motores só controlam angulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação &lt;a href=&quot;https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg&quot;&gt;Denavit Hartenberg&lt;/a&gt; e simplificações algébricas. Com isso tem-se controle sobre o plano XYZ ao invés de angulos.&lt;/p&gt;
+
+&lt;p&gt;E, por fim, como o pixel é adimensional tem que predefinir o que seria a distância entre um pixel e outro. Utilizou-se a propria bibliotéca do Arduino para controlar cada servo. Para criar o pingo, ou ponto, simplesmente move-se o braço para uma posição acima do papel sem toca-lo. Manda o braço descer, e depois voltar para a posição a cima dele. Repete-se esse movimento toda vez que na imagem processada tiver um pixel branco.&lt;/p&gt;
+
+&lt;p&gt;Imagem 6 - Resultado&lt;br /&gt;
+&lt;img src=&quot;/images/introducao-braco/resultado.svg&quot; alt=&quot;resultado&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O resultado foi aceitável para o que foi idealizado. Da para reconhecer a imagem que foi processada. Porém, teve alguns obstáculos e não foram todos resolvidos. Como por exemplo, deslisamento da caneta quando vai criar o ponto. Pretendo resolver isso com sensor de distância nesta nova versão. Mas isso será assunto dos próximos posts.&lt;/p&gt;
+
+&lt;p&gt;Inté!&lt;/p&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry></feed>

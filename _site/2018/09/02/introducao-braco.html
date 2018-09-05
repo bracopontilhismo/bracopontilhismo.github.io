@@ -47,43 +47,65 @@
   <div class="post-content e-content" itemprop="articleBody">
     <h4 id="olá-leitor">Olá leitor!</h4>
 
-<p>Este blog será dedicado especificamente para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada, através de uma técnica de desenho chamada de pontilhismo.</p>
-
-<!--more-->
-
-<h2 id="motivações">Motivações</h2>
-<p>Eu sempre tive interesse em arte e formas diferentes de desenhar. De vez em quando que estava com tédio ou em aula ou em casa abria meu caderno e começava a desenhar coisas aleatórias. Então decidi botar o projeto pra frente porque é uma otima mistura de dois interesses meus que é robótica e programação com desenho.</p>
-
-<p>É cada vez mais recorrente o uso de robôs que exercem atividades que geralmente são feitas por humanos. Este projeto tem fim acadêmico, porém, diversas aplicações podem ser geradas a partir desse trabalho, visto a gama de assuntos envolvidos na sua concepção.</p>
-
-<p>Eu criei um portótipo do projeto no primeiro semestre de 2018. O protótipo foi feito com arduino e cheio de gambiarra de codigo, uma certa mistura de Matlab, C++, Ctrl+C e Ctrl+V. Então quis desenvolver uma versão melhorada e sem gambiarra.</p>
-
-<h2 id="o-que-é-pontilhismo">O que é pontilhismo?</h2>
-<p>Pontilhismo pode ser tanto uma técnica de pintura ou de desenho. Foi criada no século XIX por Georges Seurat na França. Ela consiste em utilização de manhcas ou pontos um ao lado do outro, e as vezes até sobrepostos, para construir a imagem final.</p>
+<p>Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem, através da técnica de <a href="https://pt.wikipedia.org/wiki/Pontilhismo">pontilhismo</a>.</p>
 
 <p>Imagem 1 - Exemplo da tecninca de pontilhismo
-<img src="/images/introducao-braco/Exemplo-pontilhismo.jpeg" alt="Exemplo-pontilhismo" width="450" /></p>
+<img src="/images/introducao-braco/Exemplo-pontilhismo.svg" alt="Exemplo-pontilhismo" width="450" /></p>
 
 <p>Fonte: LUCCAS BONATO, Pássaro</p>
 
-<h2 id="resultados-do-protótipo">Resultados do protótipo</h2>
+<p>É cada vez mais recorrente o uso de robôs que exercem atividades que geralmente são feitas por humanos. Este projeto tem fim acadêmico, porém, diversas aplicações podem ser geradas a partir desse trabalho, visto a gama de assuntos envolvidos na sua concepção.</p>
+
+<p>Um protótipo foi feito durante o curso de instrumentação eletrônica no pŕimeiro semestre de 2018. Como o blog será sobre a versão melhorada, o protótipo não será abordado tão detalhadamente.</p>
+<h2 id="protótipo">Protótipo</h2>
 
 <p>Imagem 2 - protótipo</p>
 
-<p><img src="/images/introducao-braco/prototipo.jpg" alt="protótipo" width="200" /></p>
+<p><img src="/images/introducao-braco/prototipo.svg" alt="protótipo" width="400" /></p>
 
-<p>Imagem 3 - Imagem original</p>
+<p>O protótipo foi construido apenas com <a href="https://store.arduino.cc/usa/arduino-uno-rev3">Arduino Uno Rev3</a>, 4 servo motores TowerPro SG90 e sua estrutura em MDF. A estrutura em MDF é leve e facilita o controle dela pelos servo motores, pois eles tem baixo torque.</p>
 
-<p><img src="/images/introducao-braco/prototipo-original.jpg" alt="original" width="200" /></p>
+<p>A parte de processamento da imagem foi toda feita em MATLAB. Pega-se a imagem, retira-se os pontos de borda da imagem utilizando <a href="https://pt.wikipedia.org/wiki/Detector_de_bordas_de_Canny">Canny</a>, com o limiar(threshold) escolhido pelo usuário. A partir do resultado anterior é utilizado <a href="http://cs.joensuu.fi/pages/oili/PR/?a=Some__Material&amp;b=Sequential__Clustering">BSAS</a> para dar o efeito de espaçamento dos pontos.</p>
 
-<p>Imagem 4 - Resultado</p>
+<h4 id="bsas">BSAS</h4>
 
-<p><img src="/images/introducao-braco/prototipo-resultado.png" alt="resultado" width="200" /></p>
+<p><em>Basic Sequential Algorithmic Scheme</em> é um algoritimo utilizado principalmente em agrupamento de dados. O algorítimo pode ser resumidamente descrito assim:</p>
+<ol>
+  <li>Escolhe-se um ponto aleatório dos dados para ser o lider do agrupamento;</li>
+  <li>Agrupa-se, numa mesma classe, todos os dados que estão próximos dele a uma distância ‘ρ’ escolhida préviamente.</li>
+  <li>Repete-se o passo dois para um novo lider, aleatóriamente escolhido, que não pertence a nenhuma classe até não haver mais nenhum dado sem classe.</li>
+</ol>
 
-<h3 id="referências">Referências:</h3>
-<ul>
-  <li>WIKIPEDIA. <strong>Pontilhismo</strong>. Disponível em: &lt; <a href="https://pt.wikipedia.org/wiki/Pontilhismo">https://pt.wikipedia.org/wiki/Pontilhismo</a> &gt; Acesso em: 02 de setembro de 2018</li>
-</ul>
+<p>Exemplo:</p>
+
+<p>Imagem 3 - Base de dados aleatóriamente gerada
+<img src="/images/introducao-braco/dados.svg" alt="dados" width="500" /></p>
+
+<p>Imagem 4 - Dados agrupados com ρ=0.7
+<img src="/images/introducao-braco/BSASagrupados.svg" alt="agrupados" width="500" /></p>
+
+<h4 id="processamento-da-imagem">Processamento da imagem</h4>
+
+<p>O que foi utilizado no processamento foi a ideia do BSAS em separar dados de acordo com uma distância. Modificou-se o algoritimo para só memorizar a posição dos lideres, invés de agrupar. Com isso dando uma certa característica de pontilhismo.</p>
+
+<p>Imagem 5 - Imagem original<br />
+<img src="/images/introducao-braco/original.svg" alt="original" width="500" /></p>
+
+<p>Imagem 6 - Imagem processada<br />
+<img src="/images/introducao-braco/bsas.svg" alt="bsas" width="500" /></p>
+
+<h4 id="hardware">Hardware</h4>
+
+<p>Há um problema na parte do hardware pois os servo motores só controlam angulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg">Denavit Hartenberg</a> e simplificações algébricas. Com isso tem-se controle sobre o plano XYZ ao invés de angulos.</p>
+
+<p>E, por fim, como o pixel é adimensional tem que predefinir o que seria a distância entre um pixel e outro. Utilizou-se a propria bibliotéca do Arduino para controlar cada servo. Para criar o pingo, ou ponto, simplesmente move-se o braço para uma posição acima do papel sem toca-lo. Manda o braço descer, e depois voltar para a posição a cima dele. Repete-se esse movimento toda vez que na imagem processada tiver um pixel branco.</p>
+
+<p>Imagem 6 - Resultado<br />
+<img src="/images/introducao-braco/resultado.svg" alt="resultado" width="500" /></p>
+
+<p>O resultado foi aceitável para o que foi idealizado. Da para reconhecer a imagem que foi processada. Porém, teve alguns obstáculos e não foram todos resolvidos. Como por exemplo, deslisamento da caneta quando vai criar o ponto. Pretendo resolver isso com sensor de distância nesta nova versão. Mas isso será assunto dos próximos posts.</p>
+
+<p>Inté!</p>
 
   </div><a class="u-url" href="/2018/09/02/introducao-braco.html" hidden></a>
 </article>
