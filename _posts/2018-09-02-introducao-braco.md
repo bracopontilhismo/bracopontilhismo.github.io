@@ -31,8 +31,10 @@ Imagem 2 - protótipo
 O protótipo foi construido apenas com <a href="https://store.arduino.cc/usa/arduino-uno-rev3" target="_blank">Arduino Uno Rev3</a>, 4 servo motores TowerPro SG90 e sua estrutura em MDF. A estrutura em MDF é leve e facilita o controle dela pelos servo motores, pois eles têm baixo torque.
 </p>
 
+
+
 <p style='text-align: justify;'>
-A parte de processamento da imagem foi toda feita em MATLAB. Pega-se a imagem, retira-se os pontos de borda da imagem utilizando <a href="https://pt.wikipedia.org/wiki/Detector_de_bordas_de_Canny" target="_blank">Canny</a> com o limiar(threshold) escolhido pelo usuário. A partir do resultado anterior é utilizado <a href="http://cs.joensuu.fi/pages/oili/PR/?a=Some__Material&b=Sequential__Clustering/" target="_blank">BSAS</a> para dar o efeito de espaçamento dos pontos.
+A parte de processamento da imagem foi toda feita em <a href="https://www.mathworks.com/products/matlab.html" target="_blank">MATLAB</a>. Pega-se a imagem, retira-se os pontos de borda da imagem utilizando <a href="https://pt.wikipedia.org/wiki/Detector_de_bordas_de_Canny" target="_blank">Canny</a> com o limiar(threshold) escolhido pelo usuário. A partir do resultado anterior é utilizado <a href="http://cs.joensuu.fi/pages/oili/PR/?a=Some__Material&b=Sequential__Clustering/" target="_blank">BSAS</a> para dar o efeito de espaçamento dos pontos.
 </p>
 
 #### BSAS
@@ -67,7 +69,7 @@ Imagem 6 - Imagem processada<br>
 #### Hardware
 
 <p style='text-align: justify;'>
-Há um problema na parte do hardware pois os servo motores só controlam ângulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg" target="_blank">Denavit Hartenberg</a> e simplificações algébricas. Com isso se tem controle sobre o plano XYZ invés de ângulos.
+Há um problema na parte do hardware pois os servo motores só controlam ângulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg" target="_blank">Denavit Hartenberg</a> e simplificações algébricas. Com isso se tem controle sobre as coordenadas em XYZ invés de ângulos.
 </p>
 
 <p style='text-align: justify;'>
