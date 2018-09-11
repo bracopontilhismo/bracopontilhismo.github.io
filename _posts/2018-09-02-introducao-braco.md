@@ -69,7 +69,7 @@ Imagem 6 - Imagem processada<br>
 #### Hardware
 
 <p style='text-align: justify;'>
-Há um problema na parte do hardware pois os servo motores só controlam ângulo dos elos. Então calcula-se a cinemática inversa do braço e seus elos através da notação <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg" target="_blank">Denavit Hartenberg</a> e simplificações algébricas. Com isso se tem controle sobre as coordenadas em XYZ invés de ângulos.
+Há um problema na parte do hardware pois os servo motores só controlam ângulo dos elos. Então, calcula-se a cinemática inversa do braço e seus elos através da notação <a href="https://pt.wikipedia.org/wiki/Par%C3%A2metros_de_Denavit-Hartenberg" target="_blank">Denavit Hartenberg</a> e simplificações algébricas. Com isso se tem controle sobre as coordenadas em XYZ invés de ângulos.
 </p>
 
 <p style='text-align: justify;'>
