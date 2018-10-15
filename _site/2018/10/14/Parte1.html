@@ -49,6 +49,14 @@
 
 <p>Neste post irei mostrar o algoritimo pensado para processar a imagem que será dada pelo usuário. Foi utilizado C++ para a construção do algorítimo e OpenCV. OpenCV é uma bibliotéca gratúita e <em>open source</em> dedicada em facilitar a mainpulação de imagens para visão computacional.</p>
 
+<p>Nesse algorítimo além de utilizar o Canny e o BSAS para construir a imagem, será utilizado também outro algorítimo de agrupamento de dados chamado de <a href="https://en.wikipedia.org/wiki/K-means_clustering">K-médias</a>. O k-médias ajudara a formar uma imagem mais nítida.</p>
+
+<h3 id="k-médias">K-médias</h3>
+
+<p>A idéia básica do k-médias é</p>
+
+<h2 id="algorítimo">Algorítimo</h2>
+
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
@@ -512,7 +520,33 @@
   <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Primeiro, é definido um tamanho máximo para a imagem em <code class="highlighter-rouge">escala</code>, no nosso caso foi utilizado 512. Se lê o primeiro argumento, passado na execução do programa, como uma imagem em escala cinza. É verificado se a imagem possui alguma dimensão maior que 512, se não for, não se faz nada. Caso contrário a imagem é reescalada para 512 proporcionalmente.</p>
+<p>Primeiro, é definido um tamanho máximo para a imagem em <code class="highlighter-rouge">escala</code>, no nosso caso foi utilizado 512. Se lê o primeiro argumento, passado na execução do programa, como uma imagem em escala cinza. É verificado se a imagem possui alguma dimensão maior que 512, se não for, não se faz nada. Caso contrário a imagem é reescalada proporcionalmente.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//homogenização do histograma</span>
+  <span class="kt">int</span> <span class="n">nClusters</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+  <span class="n">Mat</span> <span class="n">labels</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">nRounds</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="n">Mat</span> <span class="n">centers</span><span class="p">;</span>
+
+  <span class="n">Mat</span> <span class="n">data</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">rows</span> <span class="o">*</span> <span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">CV_32F</span><span class="p">);</span>
+
+  <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">rows</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">){</span>
+      <span class="n">data</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="c1">//Aplicação do Kmeans</span>
+  <span class="n">kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+	 <span class="n">nClusters</span><span class="p">,</span>
+	 <span class="n">labels</span><span class="p">,</span>
+	 <span class="n">TermCriteria</span><span class="p">(</span><span class="n">TermCriteria</span><span class="o">::</span><span class="n">MAX_ITER</span><span class="o">+</span><span class="n">TermCriteria</span><span class="o">::</span><span class="n">EPS</span><span class="p">,</span>
+		      <span class="mi">10000</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">),</span>
+	 <span class="n">nRounds</span><span class="p">,</span>
+	 <span class="n">KMEANS_PP_CENTERS</span><span class="p">,</span>
+	 <span class="n">centers</span> <span class="p">);</span>
+</code></pre></div></div>
+
 
   </div><a class="u-url" href="/2018/10/14/Parte1.html" hidden></a>
 </article>
