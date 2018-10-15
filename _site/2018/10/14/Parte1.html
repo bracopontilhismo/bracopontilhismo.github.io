@@ -228,8 +228,6 @@
 177
 178
 179
-180
-181
 </pre></td><td class="code"><pre><span class="cp">#include &lt;iostream&gt;
 #include "opencv2/opencv.hpp"
 #include &lt;vector&gt;
@@ -248,9 +246,9 @@
     <span class="kt">int</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
 
     <span class="c1">//randomizando o primeiro leader</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arr_x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-    <span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="n">aux</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="cm">/*criando um vetor de 0 
-                            até o tamanho do array*/</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arr_x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">aux</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="cm">/*criando um vetor de 0 
+                          até o tamanho do array*/</span>
     <span class="n">random_shuffle</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">aux</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
     <span class="n">ldrs_x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">front</span><span class="p">()));</span>
     <span class="n">ldrs_y</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">front</span><span class="p">()));</span>
@@ -265,15 +263,13 @@
 		        <span class="o">+</span> <span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">-</span> <span class="n">ldrs_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
 			<span class="o">*</span><span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">-</span> <span class="n">ldrs_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">k</span><span class="p">))));</span>
       <span class="p">}</span>
+
     <span class="c1">//pegando a distancia minima</span>
-      <span class="n">d</span> <span class="o">=</span> <span class="n">dist</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
-      <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">dist</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">dist</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">d</span><span class="p">)</span> <span class="n">d</span> <span class="o">=</span> <span class="n">dist</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
-        <span class="n">dist</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
-      <span class="p">}</span>
+      <span class="n">sort</span><span class="p">(</span><span class="n">dist</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">dist</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+      <span class="n">d</span> <span class="o">=</span> <span class="n">dist</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
       <span class="n">dist</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
     
-    <span class="c1">//checando para novo leader</span>
+    <span class="c1">//checando se o dado atual é um novo leader</span>
       <span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="o">&gt;</span><span class="n">rho</span><span class="p">){</span>
         <span class="n">ldrs_x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)));</span>
         <span class="n">ldrs_y</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)));</span>
@@ -319,7 +315,7 @@
 
   <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">rows</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">){</span>
     <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">){</span>
-      <span class="n">data</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">image</span><span class="p">.</span><span class="n">cols</span> <span class="o">+</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>
+      <span class="n">data</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
@@ -327,7 +323,7 @@
   <span class="n">kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
 	 <span class="n">nClusters</span><span class="p">,</span>
 	 <span class="n">labels</span><span class="p">,</span>
-	 <span class="n">TermCriteria</span><span class="p">(</span><span class="n">TermCriteria</span><span class="o">::</span><span class="n">MAX_ITER</span> <span class="o">+</span> <span class="n">TermCriteria</span><span class="o">::</span><span class="n">EPS</span><span class="p">,</span>
+	 <span class="n">TermCriteria</span><span class="p">(</span><span class="n">TermCriteria</span><span class="o">::</span><span class="n">MAX_ITER</span><span class="o">+</span><span class="n">TermCriteria</span><span class="o">::</span><span class="n">EPS</span><span class="p">,</span>
 		      <span class="mi">10000</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">),</span>
 	 <span class="n">nRounds</span><span class="p">,</span>
 	 <span class="n">KMEANS_PP_CENTERS</span><span class="p">,</span>
@@ -412,6 +408,111 @@
   <span class="n">imwrite</span><span class="p">(</span><span class="s">"pontilhismo.png"</span><span class="p">,</span> <span class="n">pontilhismo</span><span class="p">);</span> 
 <span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
+<h3 id="bibliotécas">Bibliotécas</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include "opencv2/opencv.hpp"
+#include &lt;vector&gt;
+#include &lt;math.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">cv</span><span class="p">;</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="highlighter-rouge">iostream</code> e <code class="highlighter-rouge">namespace std</code> é o basico para qualquer programa em C++;</li>
+  <li><code class="highlighter-rouge">opencv2/opencv.hpp</code> e <code class="highlighter-rouge">namespace cv</code> são incluídos para utilizar o OpenCV;</li>
+  <li><code class="highlighter-rouge">vector</code> é uma bilbiotéca de lista, que facilita muito no código;</li>
+  <li>E por fim, <code class="highlighter-rouge">math.h</code> é incluída para fazer uns cálculos matemáticos.</li>
+</ul>
+
+<h3 id="bsas">BSAS</h3>
+
+<p>Antes de entrarmos na explicação da <em>main</em> tentarei explicar a função definida como <code class="highlighter-rouge">bsas</code>. A ideia por tras dela é a mesma explicada no post anterior.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//ALGORITIMO BSAS - BASIC SEQUENCIAL ALGORITHM SCHEME</span>
+<span class="kt">void</span> <span class="n">bsas</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">arr_x</span><span class="p">,</span>
+	   <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">arr_y</span><span class="p">,</span> <span class="n">Mat</span> <span class="o">&amp;</span><span class="n">result</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">arr_x</span><span class="p">.</span><span class="n">empty</span><span class="p">()){}</span>
+  <span class="k">else</span><span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">aux</span><span class="p">,</span> <span class="n">ldrs_x</span><span class="p">,</span> <span class="n">ldrs_y</span><span class="p">,</span> <span class="n">dist</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="c1">//randomizando o primeiro leader</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arr_x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+      <span class="n">aux</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="cm">/*criando um vetor de 0 
+                          até o tamanho do array*/</span>
+    <span class="n">random_shuffle</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">aux</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+    <span class="n">ldrs_x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">front</span><span class="p">()));</span>
+    <span class="n">ldrs_y</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">front</span><span class="p">()));</span>
+</code></pre></div></div>
+
+<p>Primeiro se checa se o vetor utilizado como argumento de entrada está vazio ou não. Se ele estiver vazio ele não faz nada. Caso contrário, ele randomiza o primeiro lider e aloca ele no vetor de liders.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">arr_x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+
+    <span class="c1">//calcular a distancia do dado atual para todos os lideres</span>
+      <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">&lt;</span><span class="n">ldrs_x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">){</span>
+        <span class="c1">//sqrt(x*x + y*y)</span>
+        <span class="n">dist</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">sqrt</span><span class="p">((</span><span class="n">arr_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">-</span> <span class="n">ldrs_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+			<span class="o">*</span><span class="p">(</span><span class="n">arr_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">-</span> <span class="n">ldrs_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+		        <span class="o">+</span> <span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">-</span> <span class="n">ldrs_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+			<span class="o">*</span><span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">-</span> <span class="n">ldrs_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">k</span><span class="p">))));</span>
+      <span class="p">}</span>
+
+    <span class="c1">//pegando a distancia minima</span>
+      <span class="n">sort</span><span class="p">(</span><span class="n">dist</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">dist</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+      <span class="n">d</span> <span class="o">=</span> <span class="n">dist</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+      <span class="n">dist</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    
+    <span class="c1">//checando se o dado atual é um novo leader</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="o">&gt;</span><span class="n">rho</span><span class="p">){</span>
+        <span class="n">ldrs_x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)));</span>
+        <span class="n">ldrs_y</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">arr_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">aux</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)));</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Faz se uma varredura em todos os dados do vetor calculando a distancia aritmética entre o dado atual e todos os lideres conhecidos até então. Após isso, verifica se a distancia minima achada é maior que a tolerância <code class="highlighter-rouge">rho</code>. Se for, o dado atual é classificado como novo lider e é alocado no vetor de lideres.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">//RECONSTRUIR IMAGEM</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">ldrs_x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+      <span class="n">result</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ldrs_x</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">ldrs_y</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Por fim, é imprimido o resultado obtido na imagem de entrada.</p>
+
+<h3 id="main">Main</h3>
+
+<p>Agora sim entraremos na explicação da <em>main</em>.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//______________________________________________</span>
+<span class="c1">//                    MAIN</span>
+<span class="c1">//______________________________________________</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span><span class="n">argv</span><span class="p">){</span>
+  <span class="n">Mat</span> <span class="n">image</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">escala</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+
+<span class="c1">//LENDO O ARGUMENTO DO PROGRAMA EM ESCALA CINZA</span>
+  <span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">);</span>
+
+<span class="c1">//Reescalar imagem se for muito grande</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">rows</span><span class="o">&gt;</span><span class="n">escala</span><span class="o">||</span><span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="o">&gt;</span><span class="n">escala</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="o">&gt;=</span><span class="n">image</span><span class="p">.</span><span class="n">rows</span><span class="p">){</span>
+      <span class="n">f</span> <span class="o">=</span> <span class="n">escala</span><span class="o">/</span><span class="n">image</span><span class="p">.</span><span class="n">cols</span><span class="p">;</span>
+      <span class="n">resize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">image</span><span class="p">,</span><span class="n">Size</span><span class="p">(),</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">INTER_CUBIC</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="n">f</span> <span class="o">=</span> <span class="n">escala</span><span class="o">/</span><span class="n">image</span><span class="p">.</span><span class="n">rows</span><span class="p">;</span>
+      <span class="n">resize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">image</span><span class="p">,</span><span class="n">Size</span><span class="p">(),</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">INTER_CUBIC</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Primeiro, é definido um tamanho máximo para a imagem em <code class="highlighter-rouge">escala</code>, no nosso caso foi utilizado 512. Se lê o primeiro argumento, passado na execução do programa, como uma imagem em escala cinza. É verificado se a imagem possui alguma dimensão maior que 512, se não for, não se faz nada. Caso contrário a imagem é reescalada para 512 proporcionalmente.</p>
 
   </div><a class="u-url" href="/2018/10/14/Parte1.html" hidden></a>
 </article>
