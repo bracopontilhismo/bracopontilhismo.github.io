@@ -12,7 +12,15 @@ Nesse algorítimo além de utilizar o Canny e o BSAS para construir a imagem, se
 
 ### K-médias
 
-A idéia básica do k-médias é 
+A idéia básica do k-médias é particionar os dados fornecidos em *k* médias diferentes.
+
+1. Define-se o número de centros, médias, você quer;
+2. Escolhe aleatóriamente *k* dados diferentes;
+3. classifica o resto dos dados de acordo com o centro mais próximo;
+4. recalcula os centros de acordo com a média dos dados nos quais cada grupo faz parte;
+5. refaz os passos 3 e 4 até um limiar até não ter diferença de centro em relação a iteração anterior.
+
+Obs: pode ser alterado para parar o algorítimo com um limiar de erro definido préviamente ou por um número máximo de iterações.
 
 ## Algorítimo
 
