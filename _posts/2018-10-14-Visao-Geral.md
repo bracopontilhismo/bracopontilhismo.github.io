@@ -42,7 +42,7 @@ Antes de começar essa parte, deve-se mapear qual será os limites da imagem. Ti
 
 - **Cinemática inversa:** Utilizando as coordenadas previamente mapeadas dos píxeis, pegamos a posição do píxel atual e aplicamos a cinemática inversa. Com isso, obtemos os ângulos necessário de cada junta para atingir tal posição.
 
-- **Conversão dos angulos em PWM:** Foi criado uma equação para traduzir o ângulo dado em graus para a largura de pulso do PWM, [mais informações](http://home.roboticlab.eu/pt/examples/motor/servo). Essa equação foi criada pegando 3 ângulos diferentes e montando uma parábola para conversão. Após a conversão é mandada o sinal de PWM para os servo motores.
+- **Conversão dos angulos em PWM:** Foi criado uma equação para traduzir o ângulo dado em graus para a largura de pulso do PWM, [mais informações](http://home.roboticlab.eu/pt/examples/motor/servo). Essa equação foi criada pegando 3 ângulos diferentes e montando uma parábola para conversão, por exemplo pegando os ângulos 0, 90 e 180 graus e vendo qual largura de PWM é cada um deles. Após a conversão é mandada o sinal de PWM para os servo motores.
 
 - **Pingar o píxel no papel:** Ao chegar na posição designada mandamos ele descer no eixo Z até chegar no papel e subir de volta pra posição anterior.
 
