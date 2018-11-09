@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-23T16:17:24-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Visão Geral</title><link href="http://localhost:4000/2018/10/14/Visao-Geral.html" rel="alternate" type="text/html" title="Visão Geral" /><published>2018-10-14T20:04:32-03:00</published><updated>2018-10-14T20:04:32-03:00</updated><id>http://localhost:4000/2018/10/14/Visao-Geral</id><content type="html" xml:base="http://localhost:4000/2018/10/14/Visao-Geral.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-11-09T13:24:00-03:00</updated><id>http://localhost:4000/</id><title type="html">Braço Pontilhismo</title><subtitle>Blog dedicado para documentar um projeto que estou desenvolvendo durante meu curso de Engenharia Elétrica na UFRN. A ideia principal do projeto é controlar um braço robótico, através de servo motores, para que consiga desenhar uma imagem qualquer dada através de uma técnica de desenho chamada de pontilhismo.</subtitle><entry><title type="html">Visão Geral</title><link href="http://localhost:4000/2018/10/14/Visao-Geral.html" rel="alternate" type="text/html" title="Visão Geral" /><published>2018-10-14T20:04:32-03:00</published><updated>2018-10-14T20:04:32-03:00</updated><id>http://localhost:4000/2018/10/14/Visao-Geral</id><content type="html" xml:base="http://localhost:4000/2018/10/14/Visao-Geral.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
 
 &lt;p&gt;Neste post será mostrado a visão geral como é feito desde a imagem até a plotagem pelo braço robótico. Não será explicado em detalhes como foi feito, mas sim dará a ideia necessaria para reprodizuir o projeto.&lt;/p&gt;
 
@@ -35,7 +35,35 @@
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Junção dos 2 processamentos:&lt;/strong&gt; após os 2 processamentos no Canny e no K-médias é juntado todos os pixels em uma imagem só.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;controle-mecânico&quot;&gt;Controle mecânico&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/visao-geral/visao-geral2-2.svg&quot; alt=&quot;Controle mecânico&quot; width=&quot;650&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Antes de começar essa parte, deve-se mapear qual será os limites da imagem. Tipo, se queremos que a imagem seja desenhado num quadrado de 10cm por 10cm. Devemos dividir os 10cm pelo número de píxeis.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Leitura de pixel:&lt;/strong&gt; O programa vasculha a imagem pixel a pixel pŕocurando os pontos marcados, que no caso seria pontos pretos, 0 na escala cinza.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Cinemática inversa:&lt;/strong&gt; Utilizando as coordenadas previamente mapeadas dos píxeis, pegamos a posição do píxel atual e aplicamos a cinemática inversa. Com isso, obtemos os ângulos necessário de cada junta para atingir tal posição.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Conversão dos angulos em PWM:&lt;/strong&gt; Foi criado uma equação para traduzir o ângulo dado em graus para a largura de pulso do PWM, &lt;a href=&quot;http://home.roboticlab.eu/pt/examples/motor/servo&quot;&gt;mais informações&lt;/a&gt;. Essa equação foi criada pegando 3 ângulos diferentes e montando uma parábola para conversão. Após a conversão é mandada o sinal de PWM para os servo motores.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Pingar o píxel no papel:&lt;/strong&gt; Ao chegar na posição designada mandamos ele descer no eixo Z até chegar no papel e subir de volta pra posição anterior.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Acabou os píxeis da imagem?:&lt;/strong&gt; Nessa etapa ele verifica se este é o ultimo píxel da imagem. Caso não for, ele retorna a Leitura do próximo píxel e refaz todos esses passo. Caso seja o último píxel ele termina por aqui.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Recapitulando, neste post foi descrito a visão geral do projeto. Desda parte de software, do processamento da imagem, até o controle mecânico do braço.&lt;/p&gt;
+
+&lt;p&gt;Inté!&lt;/p&gt;</content><author><name></name></author><summary type="html">Olá leitor!</summary></entry><entry><title type="html">Introdução do projeto</title><link href="http://localhost:4000/2018/09/02/introducao-braco.html" rel="alternate" type="text/html" title="Introdução do projeto" /><published>2018-09-02T17:54:42-03:00</published><updated>2018-09-02T17:54:42-03:00</updated><id>http://localhost:4000/2018/09/02/introducao-braco</id><content type="html" xml:base="http://localhost:4000/2018/09/02/introducao-braco.html">&lt;h4 id=&quot;olá-leitor&quot;&gt;Olá leitor!&lt;/h4&gt;
 
 &lt;p&gt;Este blog será dedicado para documentar um projeto que estou desenvolvendo durante o curso de Engenharia Elétrica na UFRN. A ideia principal é controlar um braço robótico, através de servo motores, para desenhar qualquer imagem utilizando a técnica de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Pontilhismo&quot;&gt;pontilhismo&lt;/a&gt;.&lt;/p&gt;
 

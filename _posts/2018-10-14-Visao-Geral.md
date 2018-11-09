@@ -32,4 +32,23 @@ A figura abaixo mostra fluxograma do processo. Para ser mais didático a visão 
 
 - **Junção dos 2 processamentos:** após os 2 processamentos no Canny e no K-médias é juntado todos os pixels em uma imagem só.
 
+### Controle mecânico
+
+<img src="/images/visao-geral/visao-geral2-2.svg" alt="Controle mecânico" width="650"/>
+
+Antes de começar essa parte, deve-se mapear qual será os limites da imagem. Tipo, se queremos que a imagem seja desenhado num quadrado de 10cm por 10cm. Devemos dividir os 10cm pelo número de píxeis.
+
+- **Leitura de pixel:** O programa vasculha a imagem pixel a pixel pŕocurando os pontos marcados, que no caso seria pontos pretos, 0 na escala cinza.
+
+- **Cinemática inversa:** Utilizando as coordenadas previamente mapeadas dos píxeis, pegamos a posição do píxel atual e aplicamos a cinemática inversa. Com isso, obtemos os ângulos necessário de cada junta para atingir tal posição.
+
+- **Conversão dos angulos em PWM:** Foi criado uma equação para traduzir o ângulo dado em graus para a largura de pulso do PWM, [mais informações](http://home.roboticlab.eu/pt/examples/motor/servo). Essa equação foi criada pegando 3 ângulos diferentes e montando uma parábola para conversão. Após a conversão é mandada o sinal de PWM para os servo motores.
+
+- **Pingar o píxel no papel:** Ao chegar na posição designada mandamos ele descer no eixo Z até chegar no papel e subir de volta pra posição anterior.
+
+- **Acabou os píxeis da imagem?:** Nessa etapa ele verifica se este é o ultimo píxel da imagem. Caso não for, ele retorna a Leitura do próximo píxel e refaz todos esses passo. Caso seja o último píxel ele termina por aqui.
+
+Recapitulando, neste post foi descrito a visão geral do projeto. Desda parte de software, do processamento da imagem, até o controle mecânico do braço.
+
+Inté!
 
